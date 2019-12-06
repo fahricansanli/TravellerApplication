@@ -18,7 +18,7 @@ public class ServerThread extends Thread {
     private BufferedReader inputFromClient;
     private DataOutputStream outputForClient;
     private Message inputMessage;
-    public String placeToAddComment = "";
+    //public String placeToAddComment = "";
     public boolean shouldWorkInfinitely = false;
 
     public ServerThread(Socket clientSocket) {
@@ -86,8 +86,9 @@ public class ServerThread extends Thread {
                             Comment comment = WriteReadOperation.convertToObject(inputMessage.getOptionalFourthData(), Comment.class);
                             ArrayList<Comment> modifiedComments = Database.addComment(district, leisureTimeActivity, place, comment);
                             Message outputMessageForAddComment = new Message(Type.UPDATE_COMMENT_LIST, WriteReadOperation.convertToJSON(modifiedComments), "", "", "");
-                            shouldWorkInfinitely = true;
-                            updateAllThreads(outputMessageForAddComment);
+                            outputForClient.writeBytes(WriteReadOperation.convertToJSON(outputMessageForAddComment) + '\n');
+                            //shouldWorkInfinitely = true;
+                            //updateAllThreads(outputMessageForAddComment);
                             break;
                         case PLACE_DETAIL:
                             District district2 = WriteReadOperation.convertToObject(inputMessage.getJsonData(), District.class);
@@ -97,7 +98,7 @@ public class ServerThread extends Thread {
                             Message outputMessageForPlaceDetail = new Message(Type.PLACE_DETAIL, WriteReadOperation.convertToJSON(comments), "", "", "");
                             outputForClient.writeBytes(WriteReadOperation.convertToJSON(outputMessageForPlaceDetail) + '\n');
                             break;
-                        case NOTIFY_SERVER_TO_LISTEN:
+                        /*case NOTIFY_SERVER_TO_LISTEN:
                             District districtToListen = WriteReadOperation.convertToObject(inputMessage.getJsonData(), District.class);
                             LeisureTimeActivity leisureTimeActivityToListen  = WriteReadOperation.convertToObject(inputMessage.getOptionalSecondData(), LeisureTimeActivity.class);
                             Place placeToListen  = WriteReadOperation.convertToObject(inputMessage.getOptionalThirdData(), Place.class);
@@ -108,7 +109,7 @@ public class ServerThread extends Thread {
                             break;
                         case STOP_LISTENING_SERVER:
                             shouldWorkInfinitely = false;
-                            break;
+                            break;*/
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -122,12 +123,12 @@ public class ServerThread extends Thread {
 
     }
 
-    public void updateAllThreads(Message message) throws IOException {
+    /*public void updateAllThreads(Message message) throws IOException {
         for (ServerThread thread : ApplicationServer.serverThreads) {
             if (thread.isAlive() && thread.placeToAddComment.equals(this.placeToAddComment)) {
                 thread.outputForClient.writeBytes(WriteReadOperation.convertToJSON(message) + '\n');
                 thread.outputForClient.flush();
             }
         }
-    }
+    }*/
 }
