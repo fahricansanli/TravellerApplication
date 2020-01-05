@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="titleTextSize">20sp</dimen>
+    <dimen name="hintTextSize">18sp</dimen>
+    <dimen name="buttonMargin">40dp</dimen>
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        android:text="Login"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_below="@id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="70dp"
+        android:layout_alignRight="@+id/login"
+        android:layout_marginTop="20dp"
+        android:text="Username" />
+
+    <EditText
+        android:id="@+id/usernameText"
+        android:layout_below="@id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_below="@+id/usernameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="70dp"
+        android:layout_alignRight="@+id/login"
+        android:text="Password" />
+
+    <EditText
+        android:id="@+id/passwordText"
+        android:layout_below="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_below="@+id/passwordText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="50dp"
+        android:layout_alignRight="@+id/login"
+        android:text="Login" />
+
+    <TextView
+        android:id="@+id/registerLink"
+        android:layout_below="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="New to Traveller? Register here"
+        android:textColor="#3F51B5"
+        android:textSize="20dp" />
+</RelativeLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/placeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Peynir Ekmek"
+            android:textColor="#40403d"
+            android:textSize="25sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/placeDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/placeName"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:text="A nice and cozy cafe to have breakfast"
+            android:textColor="#8a8888"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/commentTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/placeDescription"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Comments"
+            android:textColor="#8a8888"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/commentTitle"
+            android:background="#b3b1b1" />
+
+        <ListView
+            android:id="@+id/commentList"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_below="@+id/line" />
+
+        <Button
+            android:id="@+id/addCommentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/commentList"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:text="Add Comment"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+</ScrollView>
